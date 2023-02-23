@@ -1,18 +1,19 @@
-agent {
-    docker {
+pipeline {
+    agent {
+        docker {
         image '700935310038.dkr.ecr.eu-north-1.amazonaws.com/url-jenkins_agent:latest'
-        args  '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-    }
+            args  '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+        }
 
-    parameters {
-        string(name: 'YOLO5_IMAGE_URL', defaultValue: '', description: '')
-    }
+        parameters {
+            string(name: 'YOLO5_IMAGE_URL', defaultValue: '', description: '')
+        }
 
-    stages {
+        stages {
         stage('Deploy') {
-            steps {
-                sh 'echo $YOLO5_IMAGE_URL'
-            }
+                steps {
+                    sh 'echo $YOLO5_IMAGE_URL'
+                }
+        }
         }
     }
-}
