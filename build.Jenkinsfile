@@ -4,7 +4,7 @@ pipeline {
             image '700935310038.dkr.ecr.eu-north-1.amazonaws.com/url-jenkins_agent:latest'
             args  '--user root -v /var/run/docker.sock:/var/run/docker.sock'
         }
-
+    }
         options {
             timeout(time: 1, unit: 'HOURS')
             timestamps()
